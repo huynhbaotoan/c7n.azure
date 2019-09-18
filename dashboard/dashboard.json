@@ -1,0 +1,612 @@
+{
+  "properties": {
+    "lenses": {
+      "0": {
+        "order": 0,
+        "parts": {
+          "0": {
+            "position": {
+              "x": 0,
+              "y": 0,
+              "colSpan": 6,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "ComponentId",
+                  "value": {
+                    "SubscriptionId": "DeployedSubscriptionId",
+                    "ResourceGroup": "AppInsightResourceGroup",
+                    "Name": "AppInsightName",
+                    "ResourceId": "/subscriptions/DeployedSubscriptionId/resourceGroups/AppInsightResourceGroup/providers/microsoft.insights/components/AppInsightName"
+                  }
+                },
+                {
+                  "name": "Query",
+                  "value": "customMetrics \r\n| where timestamp >= ago(7d) \r\n| where name == 'ResourceCount'\r\n| sort by timestamp asc \r\n| project  itemId, name, value, timestamp, SubscriptionId=customDimensions.SubscriptionId, Policy=customDimensions.Policy, \r\n            ExecutionId=customDimensions.ExecutionId,Unit=customDimensions.Unit, Scope=customDimensions.Scope,\r\n            ResType=customDimensions.ResType\r\n| summarize count() by execDate=startofday(timestamp)  \n"
+                },
+                {
+                  "name": "Dimensions",
+                  "value": {
+                    "xAxis": {
+                      "name": "execDate",
+                      "type": "DateTime"
+                    },
+                    "yAxis": [
+                      {
+                        "name": "count_",
+                        "type": "Int64"
+                      }
+                    ],
+                    "splitBy": [],
+                    "aggregation": "Sum"
+                  }
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "PartId",
+                  "value": "e76ea85b-5996-4c1b-bb39-a3f0cb0db2e3"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": ""
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsChart"
+                },
+                {
+                  "name": "SpecificChart",
+                  "value": "Bar"
+                },
+                {
+                  "name": "TimeRange",
+                  "isOptional": true
+                },
+                {
+                  "name": "DashboardId",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Execution By Time",
+                  "PartSubTitle": ""
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
+            }
+          },
+          "1": {
+            "position": {
+              "x": 6,
+              "y": 0,
+              "colSpan": 7,
+              "rowSpan": 9
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "ComponentId",
+                  "value": {
+                    "SubscriptionId": "DeployedSubscriptionId",
+                    "ResourceGroup": "AppInsightResourceGroup",
+                    "Name": "AppInsightName",
+                    "ResourceId": "/subscriptions/DeployedSubscriptionId/resourceGroups/AppInsightResourceGroup/providers/microsoft.insights/components/AppInsightName"
+                  }
+                },
+                {
+                  "name": "Query",
+                  "value": "customMetrics \r\n| where timestamp >= ago(7d) \r\n| where name == 'ResourceCount'\r\n| sort by timestamp asc \r\n| project  itemId, name, ResourceCount=value, timestamp, SubscriptionId=customDimensions.SubscriptionId, Policy=customDimensions.Policy, \r\n            ExecutionId=customDimensions.ExecutionId,Unit=customDimensions.Unit, Scope=customDimensions.Scope,\r\n            ResType=customDimensions.ResType\r\n| summarize count() by execDate=startofday(timestamp), tostring(Policy) \r\n"
+                },
+                {
+                  "name": "Dimensions",
+                  "value": {
+                    "xAxis": {
+                      "name": "Policy",
+                      "type": "String"
+                    },
+                    "yAxis": [
+                      {
+                        "name": "count_",
+                        "type": "Int64"
+                      }
+                    ],
+                    "splitBy": [],
+                    "aggregation": "Sum"
+                  }
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "PartId",
+                  "value": "2ad75697-ac52-4636-9939-9b1f0b98ef16"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": ""
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsChart"
+                },
+                {
+                  "name": "SpecificChart",
+                  "value": "Bar"
+                },
+                {
+                  "name": "TimeRange",
+                  "isOptional": true
+                },
+                {
+                  "name": "DashboardId",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Execution By Policy",
+                  "PartSubTitle": ""
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
+            }
+          },
+          "2": {
+            "position": {
+              "x": 13,
+              "y": 0,
+              "colSpan": 6,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "ComponentId",
+                  "value": {
+                    "SubscriptionId": "DeployedSubscriptionId",
+                    "ResourceGroup": "AppInsightResourceGroup",
+                    "Name": "AppInsightName",
+                    "ResourceId": "/subscriptions/DeployedSubscriptionId/resourceGroups/AppInsightResourceGroup/providers/microsoft.insights/components/AppInsightName"
+                  }
+                },
+                {
+                  "name": "Query",
+                  "value": "customMetrics\n| where timestamp >= ago(7d)\n| where name == 'ResourceCount'\n| sort by timestamp asc\n| project  itemId, name, ResourceCount=value, timestamp, SubscriptionId=customDimensions.SubscriptionId, Policy=customDimensions.Policy,               ExecutionId=customDimensions.ExecutionId,Unit=customDimensions.Unit, Scope=customDimensions.Scope,              ResType=customDimensions.ResType\n| summarize sum(ResourceCount) by execDate=startofday(timestamp), tostring(Policy)\n"
+                },
+                {
+                  "name": "Dimensions",
+                  "value": {
+                    "xAxis": {
+                      "name": "execDate",
+                      "type": "DateTime"
+                    },
+                    "yAxis": [
+                      {
+                        "name": "sum_ResourceCount",
+                        "type": "Double"
+                      }
+                    ],
+                    "splitBy": [
+                      {
+                        "name": "Policy",
+                        "type": "String"
+                      }
+                    ],
+                    "aggregation": "Sum"
+                  }
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "PartId",
+                  "value": "30f737d0-b19f-4d9a-aac4-20d91685bd3e"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": ""
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsChart"
+                },
+                {
+                  "name": "SpecificChart",
+                  "value": "Bar"
+                },
+                {
+                  "name": "TimeRange",
+                  "isOptional": true
+                },
+                {
+                  "name": "DashboardId",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Resource Count By Time/Policy",
+                  "PartSubTitle": ""
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
+            }
+          },
+          "3": {
+            "position": {
+              "x": 0,
+              "y": 4,
+              "colSpan": 6,
+              "rowSpan": 5
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "ComponentId",
+                  "value": {
+                    "SubscriptionId": "DeployedSubscriptionId",
+                    "ResourceGroup": "AppInsightResourceGroup",
+                    "Name": "AppInsightName",
+                    "ResourceId": "/subscriptions/DeployedSubscriptionId/resourceGroups/AppInsightResourceGroup/providers/microsoft.insights/components/AppInsightName"
+                  }
+                },
+                {
+                  "name": "Query",
+                  "value": "customMetrics \r\n| where timestamp >= ago(7d) \r\n| where name == 'ResourceCount'\r\n| sort by timestamp asc \r\n| project  itemId, name, ResourceCount=value, timestamp, SubscriptionId=customDimensions.SubscriptionId, Policy=customDimensions.Policy, \r\n            ExecutionId=customDimensions.ExecutionId,Unit=customDimensions.Unit, Scope=customDimensions.Scope,\r\n            ResType=customDimensions.ResType\r\n| summarize count() by execDate=startofday(timestamp), tostring(Policy) \r\n"
+                },
+                {
+                  "name": "Dimensions",
+                  "value": {
+                    "xAxis": {
+                      "name": "execDate",
+                      "type": "DateTime"
+                    },
+                    "yAxis": [
+                      {
+                        "name": "count_",
+                        "type": "Int64"
+                      }
+                    ],
+                    "splitBy": [
+                      {
+                        "name": "Policy",
+                        "type": "String"
+                      }
+                    ],
+                    "aggregation": "Sum"
+                  }
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "PartId",
+                  "value": "b8c100a3-25ca-4161-9f4e-2de5aece4b0c"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": ""
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsChart"
+                },
+                {
+                  "name": "SpecificChart",
+                  "value": "GroupedBar"
+                },
+                {
+                  "name": "TimeRange",
+                  "isOptional": true
+                },
+                {
+                  "name": "DashboardId",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Execution By Policy, Time",
+                  "PartSubTitle": ""
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
+            }
+          },
+          "4": {
+            "position": {
+              "x": 13,
+              "y": 4,
+              "colSpan": 6,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "ComponentId",
+                  "value": {
+                    "SubscriptionId": "DeployedSubscriptionId",
+                    "ResourceGroup": "AppInsightResourceGroup",
+                    "Name": "AppInsightName",
+                    "ResourceId": "/subscriptions/DeployedSubscriptionId/resourceGroups/AppInsightResourceGroup/providers/microsoft.insights/components/AppInsightName"
+                  }
+                },
+                {
+                  "name": "Query",
+                  "value": "customMetrics \r\n| where timestamp >= ago(7d) \r\n| where name == 'ResourceCount'\r\n| sort by timestamp asc \r\n| project  itemId, name, ResourceCount=value, timestamp, SubscriptionId=customDimensions.SubscriptionId, Policy=customDimensions.Policy, \r\n            ExecutionId=customDimensions.ExecutionId,Unit=customDimensions.Unit, Scope=customDimensions.Scope,\r\n            ResType=customDimensions.ResType\r\n| summarize count() by execDate=startofday(timestamp), tostring(Policy) \r\n"
+                },
+                {
+                  "name": "Dimensions",
+                  "value": {
+                    "xAxis": {
+                      "name": "Policy",
+                      "type": "String"
+                    },
+                    "yAxis": [
+                      {
+                        "name": "count_",
+                        "type": "Int64"
+                      }
+                    ],
+                    "splitBy": [],
+                    "aggregation": "Sum"
+                  }
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "PartId",
+                  "value": "78156a62-dd8a-4473-965d-3d7ddad0c957"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": ""
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsDonut"
+                },
+                {
+                  "name": "TimeRange",
+                  "isOptional": true
+                },
+                {
+                  "name": "DashboardId",
+                  "isOptional": true
+                },
+                {
+                  "name": "SpecificChart",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Metrics By Policy",
+                  "PartSubTitle": ""
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
+            }
+          },
+          "5": {
+            "position": {
+              "x": 13,
+              "y": 8,
+              "colSpan": 6,
+              "rowSpan": 4
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "ComponentId",
+                  "value": {
+                    "SubscriptionId": "DeployedSubscriptionId",
+                    "ResourceGroup": "AppInsightResourceGroup",
+                    "Name": "AppInsightName",
+                    "ResourceId": "/subscriptions/DeployedSubscriptionId/resourceGroups/AppInsightResourceGroup/providers/microsoft.insights/components/AppInsightName"
+                  }
+                },
+                {
+                  "name": "Query",
+                  "value": "traces \r\n| where timestamp >= ago(7d) \r\n//| where name == 'ResourceCount'\r\n| sort by timestamp asc \r\n| project  timestamp, SubscriptionId=customDimensions.SubscriptionId, Policy=customDimensions.Policy, \r\n            ExecutionId=customDimensions.ExecutionId,Unit=customDimensions.Unit, Scope=customDimensions.Scope,\r\n            ResType=customDimensions.ResType\r\n| summarize count() by execDate=startofday(timestamp), tostring(Policy)   \r\n"
+                },
+                {
+                  "name": "Dimensions",
+                  "value": {
+                    "xAxis": {
+                      "name": "Policy",
+                      "type": "String"
+                    },
+                    "yAxis": [
+                      {
+                        "name": "count_",
+                        "type": "Int64"
+                      }
+                    ],
+                    "splitBy": [],
+                    "aggregation": "Sum"
+                  }
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "PartId",
+                  "value": "a8db7b86-f035-4901-b90d-a1650cc58351"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": ""
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsDonut"
+                },
+                {
+                  "name": "TimeRange",
+                  "isOptional": true
+                },
+                {
+                  "name": "DashboardId",
+                  "isOptional": true
+                },
+                {
+                  "name": "SpecificChart",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Custodian Logs By Policy",
+                  "PartSubTitle": ""
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "model": {
+        "timeRange": {
+          "value": {
+            "relative": {
+              "duration": 24,
+              "timeUnit": 1
+            }
+          },
+          "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+        },
+        "filterLocale": {
+          "value": "en-us"
+        },
+        "filters": {
+          "value": {
+            "MsPortalFx_TimeRange": {
+              "model": {
+                "format": "utc",
+                "granularity": "auto",
+                "relative": "7d"
+              },
+              "displayCache": {
+                "name": "UTC Time",
+                "value": "Past 7 days"
+              },
+              "filteredPartIds": [
+                "StartboardPart-AnalyticsPart-9c8f2e17-b318-4195-a748-05309a6a2005",
+                "StartboardPart-AnalyticsPart-5dfd6ffc-3c5c-4225-943f-69dc0a0db072",
+                "StartboardPart-AnalyticsPart-5dfd6ffc-3c5c-4225-943f-69dc0a0db074",
+                "StartboardPart-AnalyticsPart-5dfd6ffc-3c5c-4225-943f-69dc0a0db076",
+                "StartboardPart-AnalyticsPart-40e1c9ba-e85f-4a03-9c1e-242c1e408005",
+                "StartboardPart-AnalyticsPart-40e1c9ba-e85f-4a03-9c1e-242c1e408007",
+                "StartboardPart-AnalyticsPart-40e1c9ba-e85f-4a03-9c1e-242c1e408009",
+                "StartboardPart-AnalyticsPart-bae2f373-bf30-40d0-a97c-663949b32005",
+                "StartboardPart-AnalyticsPart-bae2f373-bf30-40d0-a97c-663949b32007",
+                "StartboardPart-AnalyticsPart-bae2f373-bf30-40d0-a97c-663949b32009",
+                "StartboardPart-AnalyticsPart-bae2f373-bf30-40d0-a97c-663949b3200b",
+                "StartboardPart-AnalyticsPart-e33f5d74-a775-42e4-b75a-f6c585742005",
+                "StartboardPart-AnalyticsPart-e33f5d74-a775-42e4-b75a-f6c585742007",
+                "StartboardPart-AnalyticsPart-e33f5d74-a775-42e4-b75a-f6c585742009",
+                "StartboardPart-AnalyticsPart-e33f5d74-a775-42e4-b75a-f6c58574200b",
+                "StartboardPart-AnalyticsPart-e33f5d74-a775-42e4-b75a-f6c585742011",
+                "StartboardPart-AnalyticsPart-e33f5d74-a775-42e4-b75a-f6c585742013"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "Custodian Execution Dashboard",
+  "type": "Microsoft.Portal/dashboards",
+  "location": "INSERT LOCATION",
+  "tags": {
+    "hidden-title": "Dashboard"
+  },
+  "apiVersion": "2015-08-01-preview"
+}
